@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Georgia', serif;
+  --bg-app: #faf7f0;
+  --card-bg: #fdfcf8;
+  --border-color: #ede3ca;
+  --text-main: #4a3f32;
+  --text-muted: #8c8070;
+  --text-dim: #6b5f50;
+  --accent-a: #f0b070;
+  --accent-b: #98c0f0;
+  --accent-both: #c9956a;
+}
+
+body {
+  background-color: var(--bg-app);
+  color: var(--text-main);
+  font-family: var(--font-sans);
+}
+
+@layer components {
+  .card {
+    @apply bg-[var(--card-bg)] rounded-[16px] border border-[var(--border-color)] p-4 shadow-sm;
+  }
+  
+  .section-title {
+    @apply text-[15px] font-medium text-[var(--text-main)] font-serif mb-3;
+  }
+
+  .btn-icon {
+    @apply p-2 rounded-lg transition-colors hover:bg-[#f5efe0] text-[var(--text-muted)];
+  }
+}
+
+/* Calendar Styles */
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 3px;
+}
+
+.day-cell {
+  aspect-ratio: 1;
+  @apply rounded-xl flex flex-col items-center justify-center text-[13px] cursor-pointer border border-transparent transition-all relative text-[var(--text-dim)];
+}
+
+.day-cell:hover {
+  @apply bg-[#f5efe0];
+}
+
+.day-today {
+  @apply bg-[var(--text-main)] text-[#fdfcf8] font-medium;
+}
+
+.day-a {
+  background-color: rgba(240, 176, 112, 0.22);
+  border-color: var(--accent-a);
+  color: #b06020;
+  font-weight: 500;
+}
+
+.day-b {
+  background-color: rgba(152, 192, 240, 0.22);
+  border-color: var(--accent-b);
+  color: #346090;
+  font-weight: 500;
+}
+
+.day-both {
+  background-color: rgba(184, 125, 80, 0.18);
+  border-color: rgba(184, 125, 80, 0.4);
+  color: #9e6640;
+  font-weight: 500;
+}
+
+.day-dim {
+  @apply opacity-40;
+}
+
+/* Badge Styles */
+.badge {
+  @apply text-[10px] px-[7px] py-[2px] rounded-full font-medium;
+}
+
+.badge-a {
+  background-color: rgba(240, 176, 112, 0.3);
+  color: #b06020;
+}
+
+.badge-b {
+  background-color: rgba(152, 192, 240, 0.3);
+  color: #346090;
+}
+
+/* 3D Coin Flip Utilities */
+.perspective-1000 {
+  perspective: 1000px;
+}
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+.backface-hidden {
+  backface-visibility: hidden;
+}
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
